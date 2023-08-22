@@ -1,5 +1,7 @@
 class Borrower < ApplicationRecord
     has_many :borrowings
+    has_many :notes, as: :notable
+
     validates :name, presence: true
     validate :valid_contact_info_format
     after_create :insert_borrower

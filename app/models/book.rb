@@ -2,6 +2,7 @@ require_relative 'validates'
 class Book < ApplicationRecord
 
   has_many :borrowings
+  has_many :notes, as: :notable
 
   validates :title, presence: true, uniqueness: true
   validates :author, presence: true
