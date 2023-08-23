@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
   validates :author, presence: true
-  validates :publication_year, presence: true, numericality: { only_integer: true, greater_than: 0000 }
+  validates :publication_year, presence: true, numericality: { only_integer: true, greater_than: 1700 }
   validates_with PublicationYearValidator 
   after_create :insert_book
   around_create :insert_book2
