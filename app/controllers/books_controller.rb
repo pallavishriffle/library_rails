@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-    def index
+  def index
     @books = Book.all
     render json: @books
   end
@@ -16,10 +16,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      render plain: "book was succesfully added"
+      render plain: 'book was succesfully added'
     else
-        render :new, status: 422
-    end 
+      render :new, status: 422
+    end
   end
 
   def edit
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.update(book_params)
-        render plain: "book was update succesfully added"
+      render plain: 'book was update succesfully added'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,13 +40,12 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
 
-    render plain: "book deleted succesfully "
-end
+    render plain: 'book deleted succesfully '
+  end
 
   private
-    def book_params
-        params.permit(:title, :author, :publication_year)
-     
-    end
-     
+
+  def book_params
+    params.permit(:title, :author, :publication_year)
+  end
 end
